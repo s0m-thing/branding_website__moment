@@ -49,6 +49,7 @@ a {
   --color-lightgray: #e5e7eb;
   --color-white: #fff;
   --color-beige: #faf9f6;
+  --color-red: red;
   --color-transparent: transparent;
   --spacing-xs: 4px;
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
@@ -124,6 +125,8 @@ a {
   --pro-price-color: var(--text-muted);
   --pro-price-fs: var(--body-ms);
   --pro-gap-size: var(--spacing-xs);
+  --wishlist-color: var(--color-gray);
+  --wishlist-color-hover: var(--color-red);
 }
 
 /* 토큰 라이브러리 */
@@ -563,7 +566,7 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
 }
 
 .sec_new .new_item > .img-box > button:hover {
-  color: red;
+  color: var(--wishlist-color-hover);
 }
 
 .sec_new .pro-text-box {
@@ -637,7 +640,7 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
 }
 
 .sec_best > .best_list > div > .img-box > button:hover {
-  color: red;
+  color: var(--wishlist-color-hover);
 }
 
 .sec_best > .best_list > div > .txt-box {
@@ -726,7 +729,7 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
 }
 
 .sec_best .best-list-2 > .best-item > .img-box > .wishlist:hover {
-  color: red;
+  color: var(--wishlist-color-hover);
 }
 
 .sec_best .best-list-2 > .best-item > .txt-box {
@@ -878,4 +881,101 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
   color: var(--text-muted);
   margin: 0 auto;
   letter-spacing: 0;
+}
+
+.sec_diary .diary_con {
+  display: flex;
+  gap: 4rem;
+  align-items: center;
+}
+.sec_diary .diary_con .diary_img {
+  width: 50%;
+  height: 700px;
+  background-color: #f9f8f6;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sec_diary .diary_con .diary_list {
+  width: 50%;
+  margin: 3rem 0;
+}
+.sec_diary .diary_con .diary_list .diary_item {
+  display: flex;
+  gap: 2rem;
+  box-sizing: border-box;
+  padding: 2.5rem;
+  border: 1px solid var(--bosrder-default);
+  align-items: flex-start;
+  cursor: pointer;
+  width: 100%;
+}
+.sec_diary .diary_con .diary_list .diary_item:hover .diary_thumb > .wishlist {
+  opacity: 1;
+}
+.sec_diary .diary_con .diary_list .diary_item .diary_thumb {
+  width: 112px;
+  height: 112px;
+  flex-shrink: 0;
+  background-color: #fff;
+  border: 1px solid var(--border-default);
+  box-shadow: var(--card-shadow);
+  position: relative;
+  overflow: hidden;
+}
+.sec_diary .diary_con .diary_list .diary_item .diary_thumb div {
+  position: absolute;
+  background-color: transparent;
+  border: none;
+  font-size: var(--body-xs);
+  padding: 0.5rem;
+  line-height: 1.25;
+}
+.sec_diary .diary_con .diary_list .diary_item .diary_thumb .wishlist {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background-color: transparent;
+  border: none;
+  color: var(--color-gray);
+  font-size: 18px;
+  opacity: 0;
+  transition: all 0.3s;
+  cursor: pointer;
+  z-index: 20;
+}
+.sec_diary .diary_con .diary_list .diary_item .diary_thumb .wishlist:hover {
+  color: var(--wishlist-color-hover);
+}
+.sec_diary .diary_con .diary_list .txt-box {
+  flex: 1 1 0%;
+  padding-top: 0.25rem;
+}
+.sec_diary .diary_con .diary_list .txt-box div {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+.sec_diary .diary_con .diary_list .txt-box div div p {
+  font-size: var(--body-sm);
+  color: var(--text-muted);
+  transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+.sec_diary .diary_con .diary_list .txt-box div div h4 {
+  font-size: var(--heading-lg);
+  font-weight: var(--fw-body-strong);
+  color: var(--text-secondory);
+  transition: all 0.3s;
+}
+.sec_diary .diary_con .diary_list .txt-box div div h4:hover {
+  color: var(--text-muted);
+}
+.sec_diary .diary_con .diary_list .txt-box div span {
+  font-size: var(--body-ms);
+  color: var(--text-muted);
+  font-weight: var(--fw-body-x-strong);
+  white-space: nowrap;
 }/*# sourceMappingURL=main.css.map */

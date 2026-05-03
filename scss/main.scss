@@ -65,6 +65,7 @@ a {
     --color-lightgray: #{map-get(t.$colors, lightgray)};
     --color-white: #{map-get(t.$colors, white)};
     --color-beige: #{map-get(t.$colors, beige)};
+    --color-red: #{map-get(t.$colors, red)};
     --color-transparent: #{map-get(t.$colors, transparent)};
 
     // 여백 재료
@@ -196,6 +197,10 @@ a {
     --pro-price-fs: var(--body-ms);
 
     --pro-gap-size: var(--spacing-xs);
+
+    // wishlist 토큰
+    --wishlist-color: var(--color-gray);
+    --wishlist-color-hover: var(--color-red);
 }
 
 
@@ -661,7 +666,7 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
 }
 
 .sec_new .new_item > .img-box > button:hover {
-    color: red;
+    color: var(--wishlist-color-hover);
 }
 
 .sec_new .pro-text-box {
@@ -737,7 +742,7 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
 }
 
 .sec_best > .best_list > div > .img-box > button:hover {
-    color: red;
+    color: var(--wishlist-color-hover);
 }
 
 .sec_best > .best_list > div > .txt-box {
@@ -827,7 +832,7 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
 }
 
 .sec_best .best-list-2 > .best-item > .img-box > .wishlist:hover {
-    color: red;
+    color: var(--wishlist-color-hover);
 }
 
 .sec_best .best-list-2 > .best-item > .txt-box {
@@ -1006,9 +1011,123 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
         }
     }
 }
-
 // 다이어리 배너 끝
 
+// 다이어리 상품 섹션 시작
+.sec_diary {
+    .diary_con {
+        display: flex;
+        gap: 4rem;
+        align-items: center;
+
+        .diary_img {
+            width: 50%;
+            height: 700px;
+            background-color: #f9f8f6;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .diary_list {
+            width: 50%;
+            margin: 3rem 0;
+
+            .diary_item {
+                display: flex;
+                gap: 2rem;
+                box-sizing: border-box;
+                padding: 2.5rem;
+                border: 1px solid var(--bosrder-default);
+                align-items: flex-start;
+                cursor: pointer;
+                width: 100%;
+
+                &:hover {
+                    .diary_thumb > .wishlist {
+                    opacity: 1;
+                    }
+                }
+
+                .diary_thumb {
+                    width: 112px;
+                    height: 112px;
+                    flex-shrink: 0;
+                    background-color: #fff;
+                    border: 1px solid var(--border-default);
+                    box-shadow: var(--card-shadow);
+                    position: relative;
+                    overflow: hidden;
+
+                    div {
+                        position: absolute;
+                        background-color: transparent;
+                        border: none;
+                        font-size: var(--body-xs);
+                        padding: 0.5rem;
+                        line-height: 1.25;
+                    }
+
+                    .wishlist {
+                        position: absolute;
+                        top: 0.5rem;
+                        right: 0.5rem;
+                        background-color: transparent;
+                        border: none;
+                        color: var(--color-gray);
+                        font-size: 18px;
+                        opacity: 0;
+                        transition: all .3s;
+                        cursor: pointer;
+                        z-index: 20;
+
+                        &:hover {
+                            color: var(--wishlist-color-hover);
+                        }
+                    }
+                }
+            }
+
+            .txt-box {
+                flex: 1 1 0%;
+                padding-top: 0.25rem;
+
+                div {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: flex-start;
+                    margin-bottom: 0.75rem;
+
+                    div {
+                        p {
+                            font-size: var(--body-sm);
+                            color: var(--text-muted);
+                            transform: uppercase;
+                            margin-bottom: 0.25rem;
+                        }
+                        h4 {
+                            font-size: var(--heading-lg);
+                            font-weight: var(--fw-body-strong);
+                            color: var(--text-secondory);
+                            transition: all .3s;
+
+                            &:hover {
+                                color: var(--text-muted);
+                            }
+                        }
+                    }
+                    span {
+                        font-size: var(--body-ms);
+                        color: var(--text-muted);
+                        font-weight: var(--fw-body-x-strong);
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+    }
+}
 
 
 
@@ -1029,5 +1148,4 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
 
 
 
-
-
+// 다이어리 섹션 끝
