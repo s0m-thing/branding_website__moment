@@ -117,6 +117,7 @@ a {
     // border 토큰
     --border-default: var(--color-lightgray);
     --border-strong: var(--color-gray);
+    --border-black: var(--color-black);
 
     // btn 토큰
     --btn-fs: var(--body-sm);
@@ -168,15 +169,6 @@ a {
     --card-shadow: var(--shadow-sm);
 
 
-
-
-    /* ADD TO CART 버튼 */
-    --button-color-border-default: var(--color-gray);
-    --button-color-border-hover: var(--color-black);
-    --button-bg-transparent: var(--color-transparent);
-    --button-fs: var(--font-size-xs);
-    --button-fw: var(--font-weight-bold);
-
     /* img-box 토큰 */
     --img-box-bg: var(--color-lightgray);
     --img-box-bg-hover: var(--color-gray);
@@ -207,16 +199,16 @@ a {
 /* 토큰 라이브러리 */
 
 .add_to_cart {
-    font-size: var(--button-fs);
-    border: 1px solid var(--button-color-border-default);
-    background-color: var(--button-bg-transparent);
+    font-size: var(--body-xs);
+    border: 1px solid var(--border-default);
+    background-color: transparent;
     padding: 8px 20px;
-    font-weight: var(--button-fw);
+    font-weight: var(--fw-body-x-strong);
     cursor: pointer;
     transition: all .3s;
 
     &:hover {
-        border: 1px solid var(--button-color-border-hover);
+        border: 1px solid var(--border-black);
     }
 }
 
@@ -225,7 +217,7 @@ a {
     justify-content: center; 
     align-items: center; 
     background-color: var(--img-box-bg); 
-    color: var(--img-boxcolor); 
+    color: var(--img-box-color); 
     font-size: var(--img-box-fs); 
     text-align: center; 
     border: none;
@@ -269,6 +261,7 @@ a {
 .con {
     max-width: 1440px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 // 박스형 버튼
@@ -752,7 +745,7 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
 
 .sec_best > .best_list > div > .txt-box > .category {
     font-size: var(--body-sm);
-    color: var(--text-mute);
+    color: var(--text-muted);
     text-transform: uppercase;
     margin-bottom: 16px;
 }
@@ -780,7 +773,7 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
 }
 
 .sec_best > .best_list > div > .txt-box > .price > .price-txt {
-    font-weight: --var(--fw-body-x-strong);
+    font-weight: var(--fw-body-x-strong);
 }
 
 .sec_best > .best_list > div > .txt-box > .price > .price-explore {
@@ -1021,25 +1014,26 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
         align-items: center;
 
         .diary_img {
-            width: 50%;
             height: 700px;
             background-color: #f9f8f6;
             border: none;
             display: flex;
             align-items: center;
             justify-content: center;
+            flex: 1;
         }
 
         .diary_list {
-            width: 50%;
             margin: 3rem 0;
+            flex: 1;
+
 
             .diary_item {
                 display: flex;
                 gap: 2rem;
                 box-sizing: border-box;
-                padding: 2.5rem;
-                border: 1px solid var(--bosrder-default);
+                padding-block: 2.5rem;
+                border-bottom: 1px solid var(--border-default);
                 align-items: flex-start;
                 cursor: pointer;
                 width: 100%;
@@ -1066,7 +1060,7 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
                         border: none;
                         font-size: var(--body-xs);
                         padding: 0.5rem;
-                        line-height: 1.25;
+                        line-height:1.25;
                     }
 
                     .wishlist {
@@ -1089,10 +1083,8 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
                 }
             }
 
-            .txt-box {
-                flex: 1 1 0%;
-                padding-top: 0.25rem;
-
+        .txt_box {
+            width: 100%;
                 div {
                     display: flex;
                     justify-content: space-between;
@@ -1100,6 +1092,9 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
                     margin-bottom: 0.75rem;
 
                     div {
+
+                        display: flex;
+                        flex-direction: column;
                         p {
                             font-size: var(--body-sm);
                             color: var(--text-muted);
@@ -1109,27 +1104,70 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
                         h4 {
                             font-size: var(--heading-lg);
                             font-weight: var(--fw-body-strong);
-                            color: var(--text-secondory);
+                            color: var(--text-primary);
                             transition: all .3s;
 
                             &:hover {
-                                color: var(--text-muted);
+                                color: var(--text-secondary);
                             }
                         }
                     }
                     span {
-                        font-size: var(--body-ms);
-                        color: var(--text-muted);
+                        font-size: var(--body-md);
+                        color: var(--text-primary);
                         font-weight: var(--fw-body-x-strong);
                         white-space: nowrap;
+                        margin-left: 1rem;
+                        margin-top: 0.25rem;
                     }
+                }
+                p {
+                    font-size: var(--body-ms);
+                    color: var(--text-secondary);
+                    margin-bottom: 1rem;
+                }
+
+                .colors {
+                    display: flex;
+                    gap: 0.5rem;
+                    align-items: center;
+                    justify-content: flex-start;
+
+                    div {
+                        width: 12px;
+                        height: 12px;
+                        border-radius: 50%;
+                        border: 1px solid var(--border-default);
+                        box-shadow: var(--card-shadow);
+                        cursor: pointer;
+                    }
+
+                    div:nth-child(1) {
+                        background-color: #3d2b1f;
+                    }
+
+                    div:nth-child(2) {
+                        background-color: #1c1c1c;
+                    }
+
+                    div:nth-child(3) {
+                        background-color: #c2b280;
+                    }
+                }
+
+                .btn_con {
+                    display: flex;
+                    margin-top: 1.25rem;
                 }
             }
         }
+        .viewmore-btn {
+            font-size: 10px;
+            padding: 1.25rem 3rem;
+            width: 100%;
+        }
     }
 }
-
-
 
 
 
