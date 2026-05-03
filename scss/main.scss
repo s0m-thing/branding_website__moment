@@ -535,7 +535,7 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
     margin: 0 auto;
     padding: 24px 0;
     position: sticky;
-    top: 124px;
+    top: 106px;
     z-index: 40;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
@@ -1012,6 +1012,7 @@ header > .main_header > .holder > .icon_cart:hover > .circle {
         display: flex;
         gap: 4rem;
         align-items: center;
+        margin-top: 96px;
 
         .diary_img {
             height: 700px;
