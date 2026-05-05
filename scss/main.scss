@@ -1005,7 +1005,7 @@ header {
         display: flex;
         gap: 4rem;
         align-items: center;
-        margin-top: 96px;
+        margin-bottom: 8rem;
 
         .diary_img {
             height: 700px;
@@ -1163,3 +1163,148 @@ header {
     }
 }
 // 다이어리 상품 섹션 끝
+
+// 세트 상품 시작
+.set_sec {
+    padding-top: 8rem;
+    padding-bottom: 4rem;
+    background-color: var(--bg-main);
+
+    .set_title_con {
+        padding-inline: 2rem;
+        text-align: center;
+        margin-bottom: 5rem;
+        
+        .set_title {
+            font-size: var(--heading-xl);
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .set_subtitle {
+            font-size: var(--body-md);
+            color: var(--text-secondary);
+        }
+
+        .set_line {
+            width: 2.5rem;
+            height: 1px;
+            background-color: var(--line-color);
+            margin: 0 auto;
+            margin-top: 1.5rem;
+        }
+    }
+
+    .set_gallery {
+        display: flex;
+        height: 750px;
+        border-block: 1px solid var(--border-default);
+
+        .set_item {
+            flex: 1;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+            border-right: 1px solid var(--border-default);
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: all .3s;
+
+            &:hover {
+                > .wishlist {
+                    opacity: 1;
+                }
+
+                .txt_box {
+                    background: linear-gradient(to top, rgba(148, 148, 148, 0.9) 0%, rgba(245, 244, 240, 0) 100%);
+                    transition: all .3s;
+                }
+
+                .txt_box .txt_box_on {
+                    opacity: 1;
+                    transition:all .3s;
+                }
+            }
+
+            .img_box {
+                width: 100%;
+                height: 100%;
+                box-shadow: var(--card-shadow);
+                position: absolute;
+                overflow: hidden;
+                padding-top: 8rem;
+            }
+
+            .wishlist {
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                background-color: transparent;
+                border: none;
+                color: var(--color-gray);
+                font-size: 18px;
+                opacity: 0;
+                transition: all .3s;
+                cursor: pointer;
+
+                &:hover {
+                    color: var(--wishlist-color-hover);
+                }
+            }
+
+            .txt_box {
+                width: 100%;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                padding: 3rem;
+                z-index: 20;
+                text-align: center;
+                transition: all .3s;
+                display: flex;
+                flex-direction: column;
+                align-items: center;   // 가로 중앙
+                box-sizing: border-box;
+
+                .set_title {
+                    font-size: var(--heading-xl);
+                    color: var(--text-primary);
+                    margin-bottom: 1rem;
+                }
+
+                .txt_box_on {
+                    display: flex;
+                    opacity: 0;
+
+                    > div {
+                        overflow: hidden;
+
+                        > div {
+                            padding-bottom: 2rem;
+
+                            .set_subtitle {
+                                font-size: var(--body-ms);
+                                font-weight: var(--fw-body-x-strong);
+                                transform: uppercase;
+                                margin-bottom: 0.75rem;
+                            }
+
+                            .set_des {
+                                font-size: var(--body-sm);
+                                color: var(--text-secondary);
+                                padding-inline: 1rem;
+                            }
+                        }
+                    }
+                }
+
+
+            }
+        }
+    }
+}
+
+
+
+
+// 세트 상품 끝
