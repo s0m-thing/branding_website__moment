@@ -28,7 +28,7 @@
 
 
 /* 노말라이즈 */
-body, ul, li, p, h1, h2, h3, h4 {
+body, ul, li, p, h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 	padding: 0;
 	list-style: none;
@@ -67,6 +67,7 @@ a {
     --color-beige: #{map-get(t.$colors, beige)};
     --color-red: #{map-get(t.$colors, red)};
     --color-transparent: #{map-get(t.$colors, transparent)};
+    --color-overlay: #{map-get(t.$colors, overlay)};
 
     // 여백 재료
     --spacing-xs: 4px; //수정
@@ -113,6 +114,7 @@ a {
     // background 토큰
     --bg-main: var(--color-beige);
     --bg-white: var(--color-white);
+    --bg-overlay: var(--color-overlay);
 
     // border 토큰
     --border-default: var(--color-lightgray);
@@ -1203,108 +1205,94 @@ header {
         .set_item {
             flex: 1;
             position: relative;
-            cursor: pointer;
+            height: 750px;
             overflow: hidden;
-            border-right: 1px solid var(--border-default);
-            box-sizing: border-box;
             cursor: pointer;
-            transition: all .3s;
-
-            &:hover {
-                > .wishlist {
-                    opacity: 1;
-                }
-
-                .txt_box {
-                    background: linear-gradient(to top, rgba(148, 148, 148, 0.9) 0%, rgba(245, 244, 240, 0) 100%);
-                    transition: all .3s;
-                }
-
-                .txt_box .txt_box_on {
-                    opacity: 1;
-                    transition:all .3s;
-                }
-            }
+            border-right: 1px solid var(--border-default);
 
             .img_box {
-                width: 100%;
-                height: 100%;
-                box-shadow: var(--card-shadow);
                 position: absolute;
-                overflow: hidden;
-                padding-top: 8rem;
-            }
-
-            .wishlist {
-                position: absolute;
-                top: 12px;
-                right: 12px;
-                background-color: transparent;
-                border: none;
-                color: var(--color-gray);
-                font-size: 18px;
-                opacity: 0;
-                transition: all .3s;
-                cursor: pointer;
-
-                &:hover {
-                    color: var(--wishlist-color-hover);
-                }
+                inset: 0;
+                z-index: 1;
+                background-color: var(--color-beige);
+                transition: transform 1s ease;
             }
 
             .txt_box {
-                width: 100%;
                 position: absolute;
                 bottom: 0;
                 left: 0;
-                padding: 3rem;
-                z-index: 20;
-                text-align: center;
-                transition: all .3s;
+                right: 0;
+                box-sizing: border-box; 
+                z-index: 10;
+                padding: 3rem 2rem; 
                 display: flex;
                 flex-direction: column;
-                align-items: center;   // 가로 중앙
-                box-sizing: border-box;
+                align-items: center;
+                text-align: center;
+                background: linear-gradient(to top, rgba(245, 244, 240, 0.95) 0%, rgba(245, 244, 240, 0) 100%);
+                transition: all 0.5s ease;
 
                 .set_title {
-                    font-size: var(--heading-xl);
-                    color: var(--text-primary);
-                    margin-bottom: 1rem;
+                    font-size: 2rem; 
+                    color: #111;
+                    margin: 0;
+                    transition: transform 0.5s ease;
                 }
 
                 .txt_box_on {
-                    display: flex;
+                    width: 100%;
+                    box-sizing: border-box; 
+                    max-height: 0;
                     opacity: 0;
+                    overflow: hidden;
+                    transform: translateY(20px);
+                    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
 
-                    > div {
-                        overflow: hidden;
+                    .set_subtitle {
+                        display: block;
+                        margin-top: 1.5rem;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        font-size: 0.8rem;
+                        width: 100%; 
+                    }
 
-                        > div {
-                            padding-bottom: 2rem;
-
-                            .set_subtitle {
-                                font-size: var(--body-ms);
-                                font-weight: var(--fw-body-x-strong);
-                                transform: uppercase;
-                                margin-bottom: 0.75rem;
-                            }
-
-                            .set_des {
-                                font-size: var(--body-sm);
-                                color: var(--text-secondary);
-                                padding-inline: 1rem;
-                            }
-                        }
+                    .set_des {
+                        width: 100%; 
+                        margin-top: 0.75rem;
+                        margin-bottom: 1.5rem;
+                        font-size: 0.75rem;
+                        color: #666;
+                        line-height: 1.6;
+                        padding: 0 1rem;
+                        box-sizing: border-box;
+                        word-break: keep-all;
                     }
                 }
-
-
             }
+
+            &:hover {
+                .img_box { 
+                    transform: scale(1.05); 
+                }
+
+                .txt_box {
+                    background: linear-gradient(to top, rgba(235, 234, 229, 1) 0%, rgba(235, 234, 229, 0.8) 80%, transparent 100%);
+                    padding-bottom: 5rem;
+                }
+
+                .txt_box_on {
+                    max-height: 300px;
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+
         }
     }
 }
-
-
-
-
 // 세트 상품 끝
