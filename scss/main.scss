@@ -44,6 +44,7 @@ a {
 :root {
     // 의미토큰
     // 폰트 사이즈 재료
+    --fs-xxs: #{map-get(t.$font-sizes, xxs)};
     --fs-xs: #{map-get(t.$font-sizes, xs)};
     --fs-sm: #{map-get(t.$font-sizes, sm)};
     --fs-ms: #{map-get(t.$font-sizes, ms)};
@@ -1210,6 +1211,12 @@ header {
             cursor: pointer;
             border-right: 1px solid var(--border-default);
 
+            &:hover {
+                .wishlist {
+                    opacity: 1;
+                }
+            }
+
             .img_box {
                 position: absolute;
                 inset: 0;
@@ -1217,6 +1224,24 @@ header {
                 background-color: var(--color-beige);
                 transition: transform 1s ease;
             }
+
+            .wishlist {
+                    position: absolute;
+                    top: 12px;
+                    right: 12px;
+                    background-color: transparent;
+                    border: none;
+                    color: var(--color-gray);
+                    font-size: 18px;
+                    opacity: 0;
+                    transition: all .3s;
+                    cursor: pointer;
+                    z-index: 50;
+
+                    &:hover {
+                        color: var(--wishlist-color-hover);
+                    }
+                }
 
             .txt_box {
                 position: absolute;
@@ -1237,7 +1262,7 @@ header {
                     font-size: 2rem; 
                     color: #111;
                     margin: 0;
-                    transition: transform 0.5s ease;
+                    transition: transform 1.5s ease;
                 }
 
                 .txt_box_on {
@@ -1296,3 +1321,211 @@ header {
     }
 }
 // 세트 상품 끝
+
+// 리뷰 섹션 시작
+.review_sec {
+    padding: 8rem 2rem;
+    border-top: 1px solid var(--border-default);
+    
+    .review_title {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        margin-bottom: 4rem;
+    }
+
+    .carousel-wrapper {
+    position: relative;
+    width: 100%;
+
+    .nav-btn {
+        position: absolute;
+        top: 40%;
+        transform: translateY(-50%);
+        z-index: 10;
+        width: 3rem;
+        height: 3rem;
+        background-color: var(--bg-white);
+        border-radius: 50%;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); // shadow-lg
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-secondary);
+        border: 1px solid var(--border-default);
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        &:hover:not(:disabled) {
+            background-color: var(--bg-white);
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: default;
+        }
+
+        &.prev-btn {
+            left: -1.5rem;
+        }
+
+        &.next-btn {
+            right: -1.5rem;
+        }
+    }
+
+    .swiper {
+        width: 100%;
+        overflow: hidden;
+
+        .swiper-wrapper {
+            width: 100%;
+        }
+    }
+}
+
+.review-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    cursor: pointer;
+
+    .card-image {
+        position: relative;
+        overflow: hidden;
+        background-color: var(--bg-white);
+        border: 1px solid var(--border-default);
+        aspect-ratio: 4 / 5;
+        
+        transition: background-color 0.3s ease;
+
+        .placeholder-icon {
+            position: absolute;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-gray-400);
+            z-index: 10;
+            
+            svg {
+                width: 1.5rem;
+                height: 1.5rem;
+                opacity: 0.3;
+            }
+        }
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid var(--border-default);
+        padding: 1rem;
+        background-color: var(--bg-white);
+        transition: border-color 0.3s ease;
+
+        .review-card:hover & {
+            border-color: var(--border-default);
+        }
+
+        .product-info {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            margin-bottom: 1rem;
+
+            .product-thumb {
+                width: 3rem;
+                height: 3rem;
+                background-color: var(--bg-white);
+                flex-shrink: 0;
+                padding: 0.25rem;
+                font-size: 7px;
+                border: 1px solid var(--border-default);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                line-height: 1.2;
+            }
+
+            .product-text {
+                flex: 1;
+                min-width: 0;
+
+                .category {
+                    font-size: 9px;
+                    color: var(--text-muted);
+                    letter-spacing: 0.1em; // tracking-widest
+                    text-transform: uppercase;
+                    margin-bottom: 0.25rem;
+                }
+
+                .name {
+                    font-size: 0.75rem; // text-xs
+                    font-family: serif;
+                    color: var(--text-secondary);
+                    margin: 0;
+                    // truncate 처리
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+
+        .card-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--border-default);
+            padding-top: 0.75rem;
+
+            .buy-btn {
+                font-size: 9px;
+                font-weight: bold;
+                text-transform: uppercase;
+                letter-spacing: 0.15em;
+                color: var(--text-secondary);
+                background: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                transition: color 0.3s ease;
+
+                &:hover {
+                    color: var(--text-secondary);
+                }
+            }
+
+            .action-btn {
+                color: var(--text-muted);
+                background: none;
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                transition: color 0.3s ease;
+                display: flex;
+                align-items: center;
+
+                svg {
+                    width: 1rem;
+                    height: 1rem;
+                }
+
+                &:hover {
+                    color: var(--text-secondary);
+                }
+            }
+        }
+    }
+}
+}
+
+
+
+// 리뷰 섹션 끝

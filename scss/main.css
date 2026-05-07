@@ -32,6 +32,7 @@ a {
 }
 
 :root {
+  --fs-xxs: 7px;
   --fs-xs: 9px;
   --fs-sm: 10px;
   --fs-ms: 12px;
@@ -49,7 +50,7 @@ a {
   --color-lightgray: #e5e7eb;
   --color-white: #fff;
   --color-beige: #faf9f6;
-  --color-red: red;
+  --color-red: #ef4444;
   --color-transparent: transparent;
   --color-overlay: #f5f4f0;
   --spacing-xs: 4px;
@@ -994,12 +995,31 @@ header .main_header .holder .icon_cart .circle {
   cursor: pointer;
   border-right: 1px solid var(--border-default);
 }
+.set_sec .set_gallery .set_item:hover .wishlist {
+  opacity: 1;
+}
 .set_sec .set_gallery .set_item .img_box {
   position: absolute;
   inset: 0;
   z-index: 1;
   background-color: var(--color-beige);
   transition: transform 1s ease;
+}
+.set_sec .set_gallery .set_item .wishlist {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background-color: transparent;
+  border: none;
+  color: var(--color-gray);
+  font-size: 18px;
+  opacity: 0;
+  transition: all 0.3s;
+  cursor: pointer;
+  z-index: 50;
+}
+.set_sec .set_gallery .set_item .wishlist:hover {
+  color: var(--wishlist-color-hover);
 }
 .set_sec .set_gallery .set_item .txt_box {
   position: absolute;
@@ -1020,7 +1040,7 @@ header .main_header .holder .icon_cart .circle {
   font-size: 2rem;
   color: #111;
   margin: 0;
-  transition: transform 0.5s ease;
+  transition: transform 1.5s ease;
 }
 .set_sec .set_gallery .set_item .txt_box .txt_box_on {
   width: 100%;
@@ -1064,4 +1084,178 @@ header .main_header .holder .icon_cart .circle {
   max-height: 300px;
   opacity: 1;
   transform: translateY(0);
+}
+
+.review_sec {
+  padding: 8rem 2rem;
+  border-top: 1px solid var(--border-default);
+}
+.review_sec .review_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 4rem;
+}
+.review_sec .carousel-wrapper {
+  position: relative;
+  width: 100%;
+}
+.review_sec .carousel-wrapper .nav-btn {
+  position: absolute;
+  top: 40%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--bg-white);
+  border-radius: 50%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  border: 1px solid var(--border-default);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.review_sec .carousel-wrapper .nav-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+.review_sec .carousel-wrapper .nav-btn:hover:not(:disabled) {
+  background-color: var(--bg-white);
+}
+.review_sec .carousel-wrapper .nav-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.review_sec .carousel-wrapper .nav-btn.prev-btn {
+  left: -1.5rem;
+}
+.review_sec .carousel-wrapper .nav-btn.next-btn {
+  right: -1.5rem;
+}
+.review_sec .carousel-wrapper .swiper {
+  width: 100%;
+  overflow: hidden;
+}
+.review_sec .carousel-wrapper .swiper .swiper-wrapper {
+  width: 100%;
+}
+.review_sec .review-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  cursor: pointer;
+}
+.review_sec .review-card .card-image {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-default);
+  aspect-ratio: 4/5;
+  transition: background-color 0.3s ease;
+}
+.review_sec .review-card .card-image .placeholder-icon {
+  position: absolute;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--text-gray-400);
+  z-index: 10;
+}
+.review_sec .review-card .card-image .placeholder-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+  opacity: 0.3;
+}
+.review_sec .review-card .card-content {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border-default);
+  padding: 1rem;
+  background-color: var(--bg-white);
+  transition: border-color 0.3s ease;
+}
+.review-card:hover .review_sec .review-card .card-content {
+  border-color: var(--border-default);
+}
+.review_sec .review-card .card-content .product-info {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.review_sec .review-card .card-content .product-info .product-thumb {
+  width: 3rem;
+  height: 3rem;
+  background-color: var(--bg-white);
+  flex-shrink: 0;
+  padding: 0.25rem;
+  font-size: 7px;
+  border: 1px solid var(--border-default);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.2;
+}
+.review_sec .review-card .card-content .product-info .product-text {
+  flex: 1;
+  min-width: 0;
+}
+.review_sec .review-card .card-content .product-info .product-text .category {
+  font-size: 9px;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.25rem;
+}
+.review_sec .review-card .card-content .product-info .product-text .name {
+  font-size: 0.75rem;
+  font-family: serif;
+  color: var(--text-secondary);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.review_sec .review-card .card-content .card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--border-default);
+  padding-top: 0.75rem;
+}
+.review_sec .review-card .card-content .card-actions .buy-btn {
+  font-size: 9px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+.review_sec .review-card .card-content .card-actions .buy-btn:hover {
+  color: var(--text-secondary);
+}
+.review_sec .review-card .card-content .card-actions .action-btn {
+  color: var(--text-muted);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+.review_sec .review-card .card-content .card-actions .action-btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+.review_sec .review-card .card-content .card-actions .action-btn:hover {
+  color: var(--text-secondary);
 }/*# sourceMappingURL=main.css.map */

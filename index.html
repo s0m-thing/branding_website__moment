@@ -10,6 +10,13 @@
 
     <!-- 폰트어썸 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+    <!-- swiper -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 </head>
 <body>
 
@@ -419,7 +426,7 @@
 
                 <!-- Set 2 -->
                 <div class="set_item w-100">
-                    <div class="img-boximg-placeholder bg-[#f9f8f6] img-scale transition-transform duration-[1.5s] !items-start pt-32">
+                    <div class="img_box img-placeholder bg-[#f9f8f6] img-scale transition-transform duration-[1.5s] !items-start pt-32">
                         
                     </div>
                     <button class="wishlist"><i class="fa-regular fa-heart"></i></button>
@@ -469,10 +476,9 @@
                     </div>
                 </div>
 
-                Set 4
-                <!-- Set 2 -->
+                <!-- Set 4 -->
                 <div class="set_item w-100">
-                    <div class="img-boximg-placeholder bg-[#f9f8f6] img-scale transition-transform duration-[1.5s] !items-start pt-32">
+                    <div class="img_box img-placeholder bg-[#f9f8f6] img-scale transition-transform duration-[1.5s] !items-start pt-32">
                         
                     </div>
                     <button class="wishlist"><i class="fa-regular fa-heart"></i></button>
@@ -496,6 +502,289 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- 리뷰 섹션 -->
+        <section class="review_sec con">
+            <div class="review_title">
+                <div>
+                    <h3 class="sec-title">Captured Moments</h3>
+                    <p class="sec-subtitle">모먼트와 함께한 전 세계 여행자들의 기록</p>
+                </div>
+            </div>
+
+            <!-- 스와이퍼(Carousel) 영역 -->
+            <div class="carousel-wrapper">
+                <!-- Prev 버튼 -->
+                <button id="review-prev" class="nav-btn prev-btn" aria-label="Previous slide">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                    </svg>
+                </button>
+
+                <!-- Swiper 컨테이너 -->
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        
+                        <!-- 리뷰 1 -->
+                        <div class="swiper-slide review-card">
+                            <div class="card-image">
+                                <div class="placeholder-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <div class="product-info">
+                                    <div class="product-thumb">
+                                        [실버<br>캐리어]
+                                    </div>
+                                    <div class="product-text">
+                                        <p class="category">Legacy</p>
+                                        <h5 class="name">Legacy Cabin Silver</h5>
+                                    </div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="buy-btn">Buy Now</button>
+                                    <button class="action-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 리뷰 2 -->
+                        <div class="swiper-slide review-card">
+                            <div class="card-image">
+                                <div class="placeholder-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <div class="product-info">
+                                    <div class="product-thumb">
+                                        [가죽<br>다이어리]
+                                    </div>
+                                    <div class="product-text">
+                                        <p class="category">Record</p>
+                                        <h5 class="name">Heritage Leather Journal</h5>
+                                    </div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="buy-btn">Buy Now</button>
+                                    <button class="action-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 추가 리뷰 아이템들은 이어서 배치 -->
+
+                        <!-- 리뷰 2 -->
+                        <div class="swiper-slide review-card">
+                            <div class="card-image">
+                                <div class="placeholder-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <div class="product-info">
+                                    <div class="product-thumb">
+                                        [가죽<br>다이어리]
+                                    </div>
+                                    <div class="product-text">
+                                        <p class="category">Record</p>
+                                        <h5 class="name">Heritage Leather Journal</h5>
+                                    </div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="buy-btn">Buy Now</button>
+                                    <button class="action-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 리뷰 2 -->
+                        <div class="swiper-slide review-card">
+                            <div class="card-image">
+                                <div class="placeholder-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <div class="product-info">
+                                    <div class="product-thumb">
+                                        [가죽<br>다이어리]
+                                    </div>
+                                    <div class="product-text">
+                                        <p class="category">Record</p>
+                                        <h5 class="name">Heritage Leather Journal</h5>
+                                    </div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="buy-btn">Buy Now</button>
+                                    <button class="action-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 리뷰 2 -->
+                        <div class="swiper-slide review-card">
+                            <div class="card-image">
+                                <div class="placeholder-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <div class="product-info">
+                                    <div class="product-thumb">
+                                        [가죽<br>다이어리]
+                                    </div>
+                                    <div class="product-text">
+                                        <p class="category">Record</p>
+                                        <h5 class="name">Heritage Leather Journal</h5>
+                                    </div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="buy-btn">Buy Now</button>
+                                    <button class="action-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 리뷰 2 -->
+                        <div class="swiper-slide review-card">
+                            <div class="card-image">
+                                <div class="placeholder-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <div class="product-info">
+                                    <div class="product-thumb">
+                                        [가죽<br>다이어리]
+                                    </div>
+                                    <div class="product-text">
+                                        <p class="category">Record</p>
+                                        <h5 class="name">Heritage Leather Journal</h5>
+                                    </div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="buy-btn">Buy Now</button>
+                                    <button class="action-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 리뷰 2 -->
+                        <div class="swiper-slide review-card">
+                            <div class="card-image">
+                                <div class="placeholder-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <div class="product-info">
+                                    <div class="product-thumb">
+                                        [가죽<br>다이어리]
+                                    </div>
+                                    <div class="product-text">
+                                        <p class="category">Record</p>
+                                        <h5 class="name">Heritage Leather Journal</h5>
+                                    </div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="buy-btn">Buy Now</button>
+                                    <button class="action-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 리뷰 2 -->
+                        <div class="swiper-slide review-card">
+                            <div class="card-image">
+                                <div class="placeholder-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                            
+                            <div class="card-content">
+                                <div class="product-info">
+                                    <div class="product-thumb">
+                                        [가죽<br>다이어리]
+                                    </div>
+                                    <div class="product-text">
+                                        <p class="category">Record</p>
+                                        <h5 class="name">Heritage Leather Journal</h5>
+                                    </div>
+                                </div>
+                                <div class="card-actions">
+                                    <button class="buy-btn">Buy Now</button>
+                                    <button class="action-btn">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Next 버튼 -->
+                <button id="review-next" class="nav-btn next-btn" aria-label="Next slide">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                    </svg>
+                </button>
             </div>
         </section>
     </main>
