@@ -1384,4 +1384,45 @@ header .main_header .holder .icon_cart .circle {
 }
 .event_sec > div .img_box > div:last-child span {
   display: inline-block;
+}
+
+.benefits_sec {
+  background: var(--bg-main);
+  border-top: 1px solid var(--border-default);
+  padding-block: 6rem;
+}
+.benefits_sec .con {
+  padding-inline: 2rem;
+}
+.benefits_sec .con > div {
+  display: flex;
+  gap: 2rem;
+  text-align: center;
+}
+.benefits_sec .con > div > * + * {
+  border-left: 1px solid var(--border-default);
+}
+.benefits_sec .con > div .benefits_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 1.5rem;
+  flex: 1;
+}
+.benefits_sec .con > div .benefits_item .benefits_icon {
+  font-size: 40px;
+  margin-bottom: 2rem;
+}
+.benefits_sec .con > div .benefits_item .benefits_title {
+  font-size: var(--heading-md);
+  font-weight: var(--fw-body-x-strong);
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.benefits_sec .con > div .benefits_item .benefits_des {
+  font-size: var(--body-ms);
+  color: var(--text-muted);
+  line-height: 1.625;
 }/*# sourceMappingURL=main.css.map */

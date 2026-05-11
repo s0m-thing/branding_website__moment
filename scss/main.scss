@@ -1670,6 +1670,56 @@ header {
         }
     }
 }
-
-
 // 이벤트 섹션 끝
+
+// 브랜드 혜택 섹션 시작
+.benefits_sec {
+    background: var(--bg-main);
+    border-top: 1px solid var(--border-default);
+    padding-block: 6rem;
+
+    .con {
+        padding-inline: 2rem;
+
+        > div {
+            display: flex;
+            gap: 2rem;
+            text-align: center;
+            
+            > * + * {
+                border-left: 1px solid var(--border-default);
+            }
+
+            .benefits_item {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding-inline: 1.5rem;
+                flex: 1;
+
+                .benefits_icon {
+                    font-size: 40px;
+                    margin-bottom: 2rem;
+                }
+
+                .benefits_title {
+                    font-size: var(--heading-md);
+                    font-weight: var(--fw-body-x-strong);
+                    color: var(--text-secondary);
+                    margin-bottom: 0.75rem;
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                }
+
+                .benefits_des {
+                    font-size: var(--body-ms);
+                    color: var(--text-muted);
+                    line-height: 1.625;
+                }
+            }
+        }
+    }
+}
+
+
+// 브랜드 혜택 섹션 끝
