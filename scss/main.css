@@ -24,7 +24,8 @@ body, ul, li, p, h1, h2, h3, h4, h5, h6 {
   padding: 0;
   list-style: none;
   font-family: "Pretendard";
-  font-weight: normal;
+  font-weight: inherit;
+  font-size: inherit;
 }
 
 a {
@@ -80,9 +81,11 @@ a {
   --fw-body-x-strong: var(--fw-bold);
   --bg-main: var(--color-beige);
   --bg-white: var(--color-white);
+  --bg-black: var(--color-black);
   --bg-overlay: var(--color-overlay);
   --border-default: var(--color-lightgray);
   --border-strong: var(--color-gray);
+  --border-dark: #1f2937;
   --border-black: var(--color-black);
   --btn-fs: var(--body-sm);
   --btn-fw: var(--fw-bold);
@@ -1425,4 +1428,119 @@ header .main_header .holder .icon_cart .circle {
   font-size: var(--body-ms);
   color: var(--text-muted);
   line-height: 1.625;
+}
+
+footer {
+  background-color: var(--bg-black);
+  color: var(--text-inversed);
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+}
+footer .ft-con {
+  padding-inline: 2rem;
+}
+footer .ft-con .grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 3rem;
+  margin-bottom: 5rem;
+}
+footer .ft-con .grid .newsletter {
+  grid-column: span 5/span 5;
+  padding-right: 3rem;
+}
+footer .ft-con .grid .newsletter div {
+  font-size: var(--heading-xl);
+  font-weight: var(--fw-heading-default);
+  font-family: serif;
+  letter-spacing: 0.4em;
+  margin-bottom: 1.5rem;
+}
+footer .ft-con .grid .newsletter p {
+  font-size: var(--body-ms);
+  color: var(--text-muted);
+  line-height: 1.625;
+  margin-bottom: 2rem;
+}
+footer .ft-con .grid .newsletter .email_box {
+  display: flex;
+  border-bottom: 1px solid var(--border-default);
+  padding-bottom: 0.75rem;
+  justify-content: space-between;
+}
+footer .ft-con .grid .newsletter .email_box input {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-inversed);
+  font-size: var(--body-ms);
+  padding-right: 1rem;
+}
+footer .ft-con .grid .newsletter .email_box input::-moz-placeholder {
+  color: var(--text-muted);
+}
+footer .ft-con .grid .newsletter .email_box input::placeholder {
+  color: var(--text-muted);
+}
+footer .ft-con .grid .newsletter .email_box button {
+  font-size: var(--body-ms);
+  text-transform: uppercase;
+  background: transparent;
+  font-weight: var(--fw-body-x-strong);
+  transition: color 0.3s;
+  color: var(--text-inversed);
+  border: none;
+  cursor: pointer;
+}
+footer .ft-con .grid .newsletter .email_box button:hover {
+  color: var(--text-secondary);
+}
+footer .ft-con .grid .footer_menu h5 {
+  font-size: var(--body-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  font-weight: var(--fw-heading-default);
+}
+footer .ft-con .grid .footer_menu ul {
+  font-size: 0.75rem;
+  color: #d1d5db;
+}
+footer .ft-con .grid .footer_menu ul li + li {
+  margin-top: 1rem;
+}
+footer .ft-con .grid .footer_menu ul a {
+  transition: color 0.15s;
+}
+footer .ft-con .grid .footer_menu ul a:hover {
+  color: #fff;
+}
+footer .ft-con .grid .footer_menu--sm {
+  grid-column: span 2/span 2;
+}
+footer .ft-con .grid .footer_menu--lg {
+  grid-column: span 3/span 3;
+}
+footer .ft-con .footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border-dark);
+  padding-top: 2rem;
+  font-size: var(--body-sm);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+footer .ft-con .footer-bottom > div {
+  display: flex;
+  margin-top: 1rem;
+  gap: 1.5rem;
+}
+footer .ft-con .footer-bottom > div a {
+  transition: color 0.15s;
+}
+footer .ft-con .footer-bottom > div a:hover {
+  color: var(--text-inversed);
 }/*# sourceMappingURL=main.css.map */

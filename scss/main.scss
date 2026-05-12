@@ -33,13 +33,15 @@ body, ul, li, p, h1, h2, h3, h4, h5, h6 {
 	padding: 0;
 	list-style: none;
     font-family: 'Pretendard';
-    font-weight: normal;
+    font-weight: inherit;
+    font-size: inherit;
 }
 
 a {
 	color: inherit;
 	text-decoration: none;
 }
+
 
 
 :root {
@@ -116,11 +118,13 @@ a {
     // background 토큰
     --bg-main: var(--color-beige);
     --bg-white: var(--color-white);
+    --bg-black: var(--color-black);
     --bg-overlay: var(--color-overlay);
 
     // border 토큰
     --border-default: var(--color-lightgray);
     --border-strong: var(--color-gray);
+    --border-dark: #1f2937;
     --border-black: var(--color-black);
 
     // btn 토큰
@@ -1720,6 +1724,141 @@ header {
         }
     }
 }
-
-
 // 브랜드 혜택 섹션 끝
+
+//푸터 시작
+footer {
+    background-color: var(--bg-black);
+    color: var(--text-inversed);
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+
+    .ft-con {
+        padding-inline: 2rem;
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 3rem;
+            margin-bottom: 5rem;
+
+            .newsletter {
+                grid-column: span 5 / span 5;
+                padding-right: 3rem;
+
+                div {
+                    font-size: var(--heading-xl);
+                    font-weight: var(--fw-heading-default);
+                    font-family: serif;
+                    letter-spacing: 0.4em;
+                    margin-bottom: 1.5rem;
+                }
+
+                p {
+                    font-size: var(--body-ms);
+                    color: var(--text-muted);
+                    line-height: 1.625;
+                    margin-bottom: 2rem;
+                }
+
+                .email_box {
+                    display: flex;
+                    border-bottom: 1px solid var(--border-default);
+                    padding-bottom: 0.75rem;
+                    justify-content: space-between;
+
+                    input {
+                        background-color: transparent;
+                        border: none;
+                        outline: none;
+                        color: var(--text-inversed);
+                        font-size: var(--body-ms);
+                        padding-right: 1rem;
+
+
+                        &::placeholder {
+                            color: var(--text-muted);
+                        }
+                    }
+
+                    button {
+                        font-size: var(--body-ms);
+                        text-transform: uppercase;
+                        background: transparent;
+                        font-weight: var(--fw-body-x-strong);
+                        transition: color .3s;
+                        color: var(--text-inversed);
+                        border: none;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: var(--text-secondary);
+                        }
+                    }
+                }
+            }
+
+            .footer_menu {
+                h5 {
+                    font-size: var(--body-sm);
+                    text-transform: uppercase;
+                    letter-spacing: 0.1em;
+                    color: var(--text-secondary);
+                    margin-bottom: 1.5rem;
+                    font-weight: var(--fw-heading-default);
+                }
+
+                ul {
+                    font-size: 0.75rem;
+                    color: #d1d5db;
+
+                    li + li {
+                    margin-top: 1rem;
+                    }
+
+                    a {
+                    transition: color .15s;
+
+                        &:hover {
+                            color: #fff;
+                        }
+                    }
+                }
+
+                &--sm {
+                    grid-column: span 2 / span 2;
+                }
+
+                &--lg {
+                    grid-column: span 3 / span 3;
+                }
+            }
+        }
+
+        .footer-bottom {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                border-top: 1px solid var(--border-dark);
+                padding-top: 2rem;
+                font-size: var(--body-sm);
+                color: var(--text-muted);
+                text-transform: uppercase;
+                letter-spacing: 0.1em;
+
+                > div {
+                    display: flex;
+                    margin-top: 1rem;
+                    gap: 1.5rem;
+
+                    a {
+                        transition: color .15s;
+
+                        &:hover {
+                            color: var(--text-inversed);
+                        }
+                    }
+                }
+            }
+    }
+}
