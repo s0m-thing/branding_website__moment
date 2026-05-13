@@ -26,6 +26,11 @@
     font-display: swap;
 }
 
+// 스무스 스크롤
+html {
+            scroll-behavior: smooth; 
+        }
+
 
 /* 노말라이즈 */
 body, ul, li, p, h1, h2, h3, h4, h5, h6 {
@@ -1862,3 +1867,42 @@ footer {
             }
     }
 }
+//푸터 끝
+
+//플로팅 버튼 시작
+.floating_btn {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    z-index: 150;
+    gap: 0.75rem;
+    cursor: pointer;
+
+    a {
+        display: block;
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background-color: var(--bg-white);
+        color: var(--text-secondary);
+        border: 1px solid var(--border-default);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        box-shadow: var(--shadow-sm);
+
+        svg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        &:hover {
+            background-color: var(--bg-white);
+            color: var(--text-secondary);
+        }
+    }
+}
+//플로팅 버튼 끝
