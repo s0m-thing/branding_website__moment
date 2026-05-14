@@ -33,30 +33,46 @@
         <div class="main_header con">
             <div class="logo">MOMENT</div>
 
-            <!-- gnb -->
-            <nav class="gnb">
-                <ul>
-                    <li><a href="#">New</a></li>
-                    <li><a href="#">Luggage</a></li>
-                    <li><a href="#">ACC</a></li>
-                    <li><a href="#">Record</a></li>
-                    <li><a href="#">Gift</a></li>
-                    <li><a href="#">Service</a></li>
-                </ul>
-            </nav>
+            <!-- mobile toggle -->
+            <input type="checkbox" id="nav_toggle" class="nav_toggle">
 
-            <!-- icon -->
-            <div class="holder">
-                <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
-                <span class="icon"><i class="fa-regular fa-circle-user"></i></span>
-                <span class="icon"><i class="fa-regular fa-heart"></i></span>
-                <span class="icon icon_cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
+            <!-- hamburger -->
+            <label for="nav_toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+
+            <!-- dimmed background -->
+            <label for="nav_toggle" class="mobile_dim"></label>
+
+            <!-- mobile / desktop menu area -->
+            <div class="mobile_panel">
+                <!-- gnb -->
+                <nav class="gnb">
+                    <ul>
+                        <li><a href="#">New</a></li>
+                        <li><a href="#">Luggage</a></li>
+                        <li><a href="#">ACC</a></li>
+                        <li><a href="#">Record</a></li>
+                        <li><a href="#">Gift</a></li>
+                        <li><a href="#">Service</a></li>
+                    </ul>
+                </nav>
+
+                <!-- icon -->
+                <div class="holder">
+                    <span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+                    <span class="icon"><i class="fa-regular fa-circle-user"></i></span>
+                    <span class="icon"><i class="fa-regular fa-heart"></i></span>
+                    <span class="icon icon_cart">
+                        <i class="fa-solid fa-cart-shopping"></i>
                     <span class="circle">0</span>
                 </span>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
     <main>
         <!-- hero banner -->

@@ -28,8 +28,8 @@
 
 // 스무스 스크롤
 html {
-            scroll-behavior: smooth; 
-        }
+        scroll-behavior: smooth; 
+    }
 
 
 /* 노말라이즈 */
@@ -377,7 +377,7 @@ $mobile: 768px;
 
 @mixin tablet {
     @media (max-width: $tablet) {
-        @content; // 변경할 디자인이 들어갈 자리
+        @content;
     }
 }
 
@@ -386,7 +386,6 @@ $mobile: 768px;
         @content;
     }
 }
-
 
 
 /* 헤더 시작 */
@@ -418,19 +417,94 @@ header {
         .menu_1:last-child {
             margin-left: 1.5em;
         }
+
+        @include mobile {
+            display: none;
+        }
     }
+
     .main_header {
         margin: 0 auto;
         padding: 8px 0;
         height: 80px;
         display: flex;
         align-items: center;
+        position: relative;
+
+        @include tablet {
+            height: 72px;
+        }
+
+        @include mobile {
+            height: 64px;
+            justify-content: space-between;
+        }
 
         .logo {
             font-size: var(--heading-xl);
             font-weight: var(--fw-heading-default);
             color: var(--text-primary);
             cursor: pointer;
+            flex-shrink: 0;
+
+            @include tablet {
+                font-size: var(--heading-lg);
+            }
+        }
+
+        .nav_toggle {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+
+            @include mobile {
+                width: 28px;
+                height: 22px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                cursor: pointer;
+                z-index: 70;
+
+                span {
+                    display: block;
+                    width: 100%;
+                    height: 2px;
+                    background-color: var(--text-primary);
+                    transition: all .3s;
+                }
+            }
+        }
+
+        .mobile_dim {
+            display: none;
+        }
+
+        .mobile_panel {
+            display: flex;
+            align-items: center;
+            flex: 1;
+
+            @include mobile {
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 78%;
+                max-width: 360px;
+                height: 100vh;
+                background-color: var(--bg-main);
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 96px 2rem 2rem;
+                box-sizing: border-box;
+                transform: translateX(100%);
+                transition: transform .35s ease;
+                z-index: 65;
+                border-left: 1px solid var(--border-default);
+            }
         }
 
         .gnb {
@@ -441,6 +515,10 @@ header {
             ul {
                 display: flex;
                 margin-left: 2.5rem;
+
+                @include tablet {
+                    margin-left: 1.5rem;
+                }
 
                 a {
                     display: block;
@@ -453,6 +531,32 @@ header {
                     &:hover {
                         color: var(--text-secondary);
                     }
+
+                    @include tablet {
+                        padding: 28px 18px;
+                        font-size: var(--body-md);
+                    }
+                }
+            }
+
+            @include mobile {
+                width: 100%;
+
+                ul {
+                    width: 100%;
+                    margin-left: 0;
+                    flex-direction: column;
+
+                    li {
+                        width: 100%;
+                    }
+
+                    a {
+                        padding: 18px 0;
+                        font-size: var(--heading-md);
+                        color: var(--text-primary);
+                        border-bottom: 1px solid var(--border-default);
+                    }
                 }
             }
         }
@@ -462,6 +566,18 @@ header {
             align-items: center;
             margin-left: 1.5rem;
             gap: 20px;
+
+            @include tablet {
+                gap: 14px;
+                margin-left: 1rem;
+            }
+
+            @include mobile {
+                width: 100%;
+                margin-left: 0;
+                margin-top: 32px;
+                gap: 24px;
+            }
 
             .icon {
                 color: var(--text-primary);
@@ -497,6 +613,42 @@ header {
                     font-size: var(--heading-ms);
                     transition: all .3s;
                 }
+            }
+        }
+
+        // mobile menu open
+        .nav_toggle:checked ~ .mobile_panel {
+            @include mobile {
+                transform: translateX(0);
+            }
+        }
+
+        .nav_toggle:checked ~ .mobile_dim {
+            @include mobile {
+                display: block;
+                position: fixed;
+                inset: 0;
+                background-color: rgba(0, 0, 0, .35);
+                z-index: 60;
+            }
+        }
+
+        // hamburger animation
+        .nav_toggle:checked ~ .hamburger {
+            position: fixed;
+            top: 21px;
+            right: 2rem;
+
+            span:nth-child(1) {
+                transform: translateY(10px) rotate(45deg);
+            }
+
+            span:nth-child(2) {
+                opacity: 0;
+            }
+
+            span:nth-child(3) {
+                transform: translateY(-10px) rotate(-45deg);
             }
         }
     }

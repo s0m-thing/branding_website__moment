@@ -308,18 +308,93 @@ header .utility_bar .menu_1:hover {
 header .utility_bar .menu_1:last-child {
   margin-left: 1.5em;
 }
+@media (max-width: 768px) {
+  header .utility_bar {
+    display: none;
+  }
+}
 header .main_header {
   margin: 0 auto;
   padding: 8px 0;
   height: 80px;
   display: flex;
   align-items: center;
+  position: relative;
+}
+@media (max-width: 1024px) {
+  header .main_header {
+    height: 72px;
+  }
+}
+@media (max-width: 768px) {
+  header .main_header {
+    height: 64px;
+    justify-content: space-between;
+  }
 }
 header .main_header .logo {
   font-size: var(--heading-xl);
   font-weight: var(--fw-heading-default);
   color: var(--text-primary);
   cursor: pointer;
+  flex-shrink: 0;
+}
+@media (max-width: 1024px) {
+  header .main_header .logo {
+    font-size: var(--heading-lg);
+  }
+}
+header .main_header .nav_toggle {
+  display: none;
+}
+header .main_header .hamburger {
+  display: none;
+}
+@media (max-width: 768px) {
+  header .main_header .hamburger {
+    width: 28px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+    z-index: 70;
+  }
+  header .main_header .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-primary);
+    transition: all 0.3s;
+  }
+}
+header .main_header .mobile_dim {
+  display: none;
+}
+header .main_header .mobile_panel {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+@media (max-width: 768px) {
+  header .main_header .mobile_panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 78%;
+    max-width: 360px;
+    height: 100vh;
+    background-color: var(--bg-main);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 96px 2rem 2rem;
+    box-sizing: border-box;
+    transform: translateX(100%);
+    transition: transform 0.35s ease;
+    z-index: 65;
+    border-left: 1px solid var(--border-default);
+  }
 }
 header .main_header .gnb {
   display: flex;
@@ -329,6 +404,11 @@ header .main_header .gnb {
 header .main_header .gnb ul {
   display: flex;
   margin-left: 2.5rem;
+}
+@media (max-width: 1024px) {
+  header .main_header .gnb ul {
+    margin-left: 1.5rem;
+  }
 }
 header .main_header .gnb ul a {
   display: block;
@@ -341,11 +421,50 @@ header .main_header .gnb ul a {
 header .main_header .gnb ul a:hover {
   color: var(--text-secondary);
 }
+@media (max-width: 1024px) {
+  header .main_header .gnb ul a {
+    padding: 28px 18px;
+    font-size: var(--body-md);
+  }
+}
+@media (max-width: 768px) {
+  header .main_header .gnb {
+    width: 100%;
+  }
+  header .main_header .gnb ul {
+    width: 100%;
+    margin-left: 0;
+    flex-direction: column;
+  }
+  header .main_header .gnb ul li {
+    width: 100%;
+  }
+  header .main_header .gnb ul a {
+    padding: 18px 0;
+    font-size: var(--heading-md);
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-default);
+  }
+}
 header .main_header .holder {
   display: flex;
   align-items: center;
   margin-left: 1.5rem;
   gap: 20px;
+}
+@media (max-width: 1024px) {
+  header .main_header .holder {
+    gap: 14px;
+    margin-left: 1rem;
+  }
+}
+@media (max-width: 768px) {
+  header .main_header .holder {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 32px;
+    gap: 24px;
+  }
 }
 header .main_header .holder .icon {
   color: var(--text-primary);
@@ -375,6 +494,34 @@ header .main_header .holder .icon_cart .circle {
   color: var(--text-inversed);
   font-size: var(--heading-ms);
   transition: all 0.3s;
+}
+@media (max-width: 768px) {
+  header .main_header .nav_toggle:checked ~ .mobile_panel {
+    transform: translateX(0);
+  }
+}
+@media (max-width: 768px) {
+  header .main_header .nav_toggle:checked ~ .mobile_dim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 60;
+  }
+}
+header .main_header .nav_toggle:checked ~ .hamburger {
+  position: fixed;
+  top: 21px;
+  right: 2rem;
+}
+header .main_header .nav_toggle:checked ~ .hamburger span:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+}
+header .main_header .nav_toggle:checked ~ .hamburger span:nth-child(2) {
+  opacity: 0;
+}
+header .main_header .nav_toggle:checked ~ .hamburger span:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
 }
 
 /* 헤더 끝 */
