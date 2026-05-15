@@ -28,8 +28,8 @@
 
 // 스무스 스크롤
 html {
-        scroll-behavior: smooth; 
-    }
+    scroll-behavior: smooth; 
+}
 
 
 /* 노말라이즈 */
@@ -438,6 +438,7 @@ header {
         @include mobile {
             height: 64px;
             justify-content: space-between;
+            padding-inline: 1.5rem;
         }
 
         .logo {
@@ -692,6 +693,59 @@ header {
         height: 18px;
         color: var(--hero-arr-color);
         animation: bounce 1s infinite;
+    }
+
+    @include tablet {
+        height: 75vh;
+
+        .txt_box {
+            p {
+                font-size: var(--body-xs);
+                letter-spacing: 3px;
+            }
+
+            h2 {
+                font-size: var(--heading-xxl);
+                margin-bottom: 20px;
+            }
+        }
+
+        .arr {
+            bottom: 32px;
+        }
+    }
+
+    @include mobile {
+        height: 68vh;
+        min-height: 480px;
+        padding: 0 1.5rem;
+        box-sizing: border-box;
+
+        .txt_box {
+            width: 100%;
+
+            p {
+                font-size: var(--body-xs);
+                letter-spacing: 2px;
+                margin-bottom: 12px;
+            }
+
+            h2 {
+                font-size: var(--heading-xl);
+                line-height: 1.35;
+                margin-bottom: 22px;
+            }
+
+            .btn-outline {
+                font-size: var(--body-sm);
+                padding: 12px 22px;
+            }
+        }
+
+        .arr {
+            bottom: 28px;
+            font-size: 14px;
+        }
     }
 }
 

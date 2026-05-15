@@ -330,6 +330,7 @@ header .main_header {
   header .main_header {
     height: 64px;
     justify-content: space-between;
+    padding-inline: 1.5rem;
   }
 }
 header .main_header .logo {
@@ -559,6 +560,51 @@ header .main_header .nav_toggle:checked ~ .hamburger span:nth-child(3) {
   height: 18px;
   color: var(--hero-arr-color);
   animation: bounce 1s infinite;
+}
+@media (max-width: 1024px) {
+  .hero_banner {
+    height: 75vh;
+  }
+  .hero_banner .txt_box p {
+    font-size: var(--body-xs);
+    letter-spacing: 3px;
+  }
+  .hero_banner .txt_box h2 {
+    font-size: var(--heading-xxl);
+    margin-bottom: 20px;
+  }
+  .hero_banner .arr {
+    bottom: 32px;
+  }
+}
+@media (max-width: 768px) {
+  .hero_banner {
+    height: 68vh;
+    min-height: 480px;
+    padding: 0 1.5rem;
+    box-sizing: border-box;
+  }
+  .hero_banner .txt_box {
+    width: 100%;
+  }
+  .hero_banner .txt_box p {
+    font-size: var(--body-xs);
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+  }
+  .hero_banner .txt_box h2 {
+    font-size: var(--heading-xl);
+    line-height: 1.35;
+    margin-bottom: 22px;
+  }
+  .hero_banner .txt_box .btn-outline {
+    font-size: var(--body-sm);
+    padding: 12px 22px;
+  }
+  .hero_banner .arr {
+    bottom: 28px;
+    font-size: 14px;
+  }
 }
 
 @keyframes bounce {
