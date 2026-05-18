@@ -629,6 +629,26 @@ header .main_header .nav_toggle:checked ~ .hamburger span:nth-child(3) {
   z-index: 40;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
+@media (max-width: 1024px) {
+  .anchor_nav {
+    top: 72px;
+    padding: 18px 0;
+  }
+  .anchor_nav .con {
+    gap: 32px;
+  }
+  .anchor_nav .anchor_line {
+    width: 28px;
+  }
+  .anchor_nav .anchor_name {
+    font-size: var(--body-md);
+  }
+}
+@media (max-width: 768px) {
+  .anchor_nav {
+    display: none;
+  }
+}
 .anchor_nav .con {
   display: flex;
   justify-content: center;
@@ -678,6 +698,11 @@ header .main_header .nav_toggle:checked ~ .hamburger span:nth-child(3) {
 .anchor_title div h3 {
   font-size: var(--heading-xl);
   font-weight: var(--fw-heading-default);
+}
+@media (max-width: 768px) {
+  .anchor_title div h3 {
+    font-size: var(--heading-lg);
+  }
 }
 
 /* 타이틀텍스트 1 끝 */

@@ -773,6 +773,27 @@ header {
     z-index: 40;
     box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 
+    @include tablet {
+        top: 72px;
+        padding: 18px 0;
+
+        .con {
+            gap: 32px;
+        }
+
+        .anchor_line {
+            width: 28px;
+        }
+
+        .anchor_name {
+            font-size: var(--body-md);
+        }
+    }
+
+    @include mobile {
+        display: none;
+    }
+
     .con {
         display: flex;
         justify-content: center;
@@ -830,6 +851,10 @@ header {
         h3 {
             font-size: var(--heading-xl);
             font-weight: var(--fw-heading-default);
+
+            @include mobile {
+                font-size: var(--heading-lg);
+            }
         }
     }
 }
