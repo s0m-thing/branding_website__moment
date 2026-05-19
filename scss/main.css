@@ -160,7 +160,7 @@ a {
   text-align: center;
   border: none;
   padding: 20px;
-  position: absolute;
+  box-sizing: border-box;
 }
 
 .pro-text-box {
@@ -762,12 +762,46 @@ header .main_header .nav_toggle:checked ~ .hamburger span:nth-child(3) {
 .sec_new .pro-text-box {
   text-align: center;
 }
+@media (max-width: 1024px) {
+  .sec_new {
+    padding: 5rem 2rem;
+  }
+  .sec_new > div {
+    margin-bottom: 3rem;
+  }
+  .sec_new .new_list {
+    flex-wrap: wrap;
+    gap: 2.5rem 1.5rem;
+  }
+  .sec_new .new_list .new_item {
+    flex: 0 0 calc(50% - 0.75rem);
+  }
+}
+@media (max-width: 768px) {
+  .sec_new .new_list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem 1rem;
+  }
+  .sec_new .new_list .new_item {
+    flex: 0 0 calc(50% - 0.5rem);
+  }
+  .sec_new .pro-text-box {
+    text-align: left;
+  }
+  .sec_new .pro-text-box {
+    text-align: left;
+  }
+}
 
 /* sec02-New Arrivals 끝 */
 /* sec03-Signature Best 시작 */
 .sec_best {
   padding: 8rem 2rem;
   border-top: 1px solid var(--border-strong);
+  /* ==========================================
+     [1] 타이틀 영역
+     ========================================== */
 }
 .sec_best > .best_title {
   display: flex;
@@ -775,23 +809,28 @@ header .main_header .nav_toggle:checked ~ .hamburger span:nth-child(3) {
   align-items: flex-end;
   margin-bottom: 4rem;
 }
+.sec_best {
+  /* ==========================================
+     [2] 리스트 전체 컨테이너
+     ========================================== */
+}
 .sec_best .best_list {
   display: flex;
   flex-direction: column;
   gap: 5rem;
-  /* best 1등 제품 */
+  /* 🥇 best 1등 제품 */
 }
-.sec_best .best_list > div {
+.sec_best .best_list > .best-item {
   width: 100%;
   display: flex;
   align-items: center;
   gap: 4rem;
   cursor: pointer;
 }
-.sec_best .best_list > div:hover .img-box > button {
+.sec_best .best_list > .best-item:hover .img-box > button {
   opacity: 1;
 }
-.sec_best .best_list > div .img-box {
+.sec_best .best_list > .best-item .img-box {
   width: 60%;
   aspect-ratio: 16/10;
   box-shadow: var(--card-shadow);
@@ -799,8 +838,9 @@ header .main_header .nav_toggle:checked ~ .hamburger span:nth-child(3) {
   border: 1px solid var(--border-default);
   overflow: hidden;
   position: relative;
+  box-sizing: border-box; /* 패딩 폭발 방지 */
 }
-.sec_best .best_list > div .img-box button {
+.sec_best .best_list > .best-item .img-box button {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -813,73 +853,81 @@ header .main_header .nav_toggle:checked ~ .hamburger span:nth-child(3) {
   transition: all 0.3s;
   cursor: pointer;
 }
-.sec_best .best_list > div .img-box button:hover {
+.sec_best .best_list > .best-item .img-box button:hover {
   color: var(--wishlist-color-hover);
 }
-.sec_best .best_list > div .txt-box {
+.sec_best .best_list > .best-item .txt-box {
   width: 40%;
   padding-right: 3rem;
 }
-.sec_best .best_list > div .txt-box .category {
+.sec_best .best_list > .best-item .txt-box .category {
   font-size: var(--body-sm);
   color: var(--text-muted);
   text-transform: uppercase;
   margin-bottom: 16px;
 }
-.sec_best .best_list > div .txt-box .title {
+.sec_best .best_list > .best-item .txt-box .title {
   font-size: var(--heading-xl);
   color: var(--text-secondary);
   margin: 0 0 24px 0;
   font-weight: var(--fw-body-strong);
 }
-.sec_best .best_list > div .txt-box .des {
+.sec_best .best_list > .best-item .txt-box .des {
   font-size: 0.875rem;
   line-height: 1.25rem;
   color: var(--text-muted);
   margin-bottom: 40px;
 }
-.sec_best .best_list > div .txt-box .price {
+.sec_best .best_list > .best-item .txt-box .price {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
   border-bottom: 1px solid var(--border-strong);
   padding-bottom: 16px;
 }
-.sec_best .best_list > div .txt-box .price .price-txt {
+.sec_best .best_list > .best-item .txt-box .price .price-txt {
   font-weight: var(--fw-body-x-strong);
 }
-.sec_best .best_list > div .txt-box .price .price-explore {
+.sec_best .best_list > .best-item .txt-box .price .price-explore {
   text-transform: uppercase;
   color: var(--text-muted);
   transition: all 0.3s;
 }
-.sec_best .best_list > div .txt-box .price .price-explore:hover {
+.sec_best .best_list > .best-item .txt-box .price .price-explore:hover {
   color: var(--text-secondary);
 }
-.sec_best {
-  /* best 2,3,4등 제품 */
+.sec_best .best_list {
+  /* 🥈 best 2,3,4등 제품 (방어막이 장착된 튼튼한 Grid) */
 }
-.sec_best .best-list-2 {
-  display: flex;
+.sec_best .best_list > .best-list-2 {
+  display: grid;
+  /* 🚨 minmax(0, 1fr) : 내용물이 커져도 Grid 칸이 터지는 것을 막는 완벽한 방어막! */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2rem;
   margin-top: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
-.sec_best .best-list-2 .best-item {
-  flex: 1;
+.sec_best .best_list > .best-list-2 .best-item {
+  width: 100%;
+  min-width: 0; /* 🚨 자식 요소 뚫림 방지 */
   cursor: pointer;
 }
-.sec_best .best-list-2 .best-item:hover .img-box > .wishlist {
+.sec_best .best_list > .best-list-2 .best-item:hover .img-box > .wishlist {
   opacity: 1;
 }
-.sec_best .best-list-2 .best-item .img-box {
+.sec_best .best_list > .best-list-2 .best-item .img-box {
   position: relative;
+  width: 100%;
   aspect-ratio: 3/4;
   overflow: hidden;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   margin-bottom: 24px;
-  width: 100%;
+  background-color: var(--img-box-bg);
+  border: 1px solid var(--border-default);
+  box-sizing: border-box;
 }
-.sec_best .best-list-2 .best-item .img-box .wishlist {
+.sec_best .best_list > .best-list-2 .best-item .img-box .wishlist {
   position: absolute;
   top: 12px;
   right: 12px;
@@ -891,11 +939,116 @@ header .main_header .nav_toggle:checked ~ .hamburger span:nth-child(3) {
   transition: all 0.3s;
   cursor: pointer;
 }
-.sec_best .best-list-2 .best-item .img-box .wishlist:hover {
+.sec_best .best_list > .best-list-2 .best-item .img-box .wishlist:hover {
   color: var(--wishlist-color-hover);
 }
-.sec_best .best-list-2 .best-item .txt-box {
+.sec_best .best_list > .best-list-2 .best-item .pro-text-box {
   text-align: center;
+}
+.sec_best {
+  /* ==========================================
+     💻 반응형: 태블릿 (Tablet)
+     ========================================== */
+}
+@media (max-width: 1024px) {
+  .sec_best {
+    padding: 6rem 2rem;
+  }
+  .sec_best > .best_title {
+    margin-bottom: 3rem;
+  }
+  .sec_best .best_list {
+    gap: 4rem;
+    /* 1등 제품 태블릿 */
+  }
+  .sec_best .best_list > .best-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2.5rem;
+  }
+  .sec_best .best_list > .best-item .img-box {
+    width: 100%;
+    aspect-ratio: 16/9;
+  }
+  .sec_best .best_list > .best-item .img-box button {
+    opacity: 1;
+  }
+  .sec_best .best_list > .best-item .txt-box {
+    width: 100%;
+    padding-right: 0;
+  }
+  .sec_best .best_list > .best-item .txt-box .title {
+    font-size: var(--heading-lg);
+  }
+  .sec_best .best_list > .best-item .txt-box .des {
+    margin-bottom: 24px;
+  }
+  .sec_best .best_list {
+    /* 2,3,4등 제품 태블릿 */
+  }
+  .sec_best .best_list > .best-list-2 {
+    gap: 1.5rem;
+  }
+  .sec_best .best_list > .best-list-2 .best-item .img-box {
+    aspect-ratio: 4/5;
+  }
+  .sec_best .best_list > .best-list-2 .best-item .img-box .wishlist {
+    opacity: 1;
+  }
+}
+.sec_best {
+  /* ==========================================
+     📱 반응형: 모바일 (Mobile)
+     ========================================== */
+}
+@media (max-width: 768px) {
+  .sec_best {
+    padding: 4rem 1.5rem;
+  }
+  .sec_best > .best_title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+  .sec_best .best_list {
+    gap: 3rem;
+    /* 1등 제품 모바일 */
+  }
+  .sec_best .best_list > .best-item {
+    gap: 1.5rem;
+  }
+  .sec_best .best_list > .best-item .img-box {
+    aspect-ratio: 4/5;
+  }
+  .sec_best .best_list > .best-item .txt-box .category {
+    font-size: var(--body-xs);
+    margin-bottom: 12px;
+  }
+  .sec_best .best_list > .best-item .txt-box .title {
+    font-size: var(--heading-md);
+    margin-bottom: 16px;
+  }
+  .sec_best .best_list > .best-item .txt-box .des {
+    font-size: var(--body-sm);
+    margin-bottom: 24px;
+  }
+  .sec_best .best_list > .best-item .txt-box .price {
+    font-size: var(--body-sm);
+  }
+  .sec_best .best_list {
+    /* 2,3,4등 제품 모바일 (2열 격자 구조) */
+  }
+  .sec_best .best_list > .best-list-2 {
+    grid-template-columns: 1fr; /* 🚨 2칸 쪼개기를 지우고 1칸 꽉 차게! */
+    gap: 3rem; /* 위아래 간격을 시원하게 벌려줍니다 */
+  }
+  .sec_best .best_list > .best-list-2 .best-item .img-box {
+    aspect-ratio: 4/5;
+  }
+  .sec_best .best_list > .best-list-2 .best-item .pro-text-box {
+    text-align: center; /* 1열일 때는 텍스트 가운데 정렬이 우아합니다 */
+  }
 }
 
 /* sec03-Signature Best 끝 */

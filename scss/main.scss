@@ -237,7 +237,7 @@ a {
     text-align: center; 
     border: none;
     padding: 20px;
-    position: absolute;
+    box-sizing: border-box;
 }
 
 .pro-text-box {
@@ -923,10 +923,46 @@ header {
         }
     }
 
-        .pro-text-box {
+    .pro-text-box {
         text-align: center;
     }
 
+    @include tablet {
+        padding: 5rem 2rem;
+
+        > div {
+            margin-bottom: 3rem;
+        }
+
+        .new_list {
+            flex-wrap: wrap;
+            gap: 2.5rem 1.5rem;
+
+            .new_item {
+                flex: 0 0 calc(50% - 0.75rem);
+            }
+        }
+    }
+
+    @include mobile {
+    .new_list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 2rem 1rem;
+
+        .new_item {
+            flex: 0 0 calc(50% - 0.5rem);
+        }
+    }
+
+    .pro-text-box {
+        text-align: left;
+    }
+
+        .pro-text-box {
+            text-align: left;
+        }
+    }
 }
 
 /* sec02-New Arrivals 끝 */
@@ -936,6 +972,9 @@ header {
     padding: 8rem 2rem;
     border-top: 1px solid var(--border-strong);
 
+    /* ==========================================
+       [1] 타이틀 영역
+       ========================================== */
     > .best_title {
         display: flex;
         justify-content: space-between;
@@ -943,13 +982,16 @@ header {
         margin-bottom: 4rem;
     }
 
+    /* ==========================================
+       [2] 리스트 전체 컨테이너
+       ========================================== */
     .best_list {
         display: flex;
         flex-direction: column;
         gap: 5rem;
 
-        /* best 1등 제품 */ 
-        > div {
+        /* 🥇 best 1등 제품 */
+        > .best-item {
             width: 100%;
             display: flex;
             align-items: center;
@@ -970,6 +1012,7 @@ header {
                 border: 1px solid var(--border-default);
                 overflow: hidden;
                 position: relative;
+                box-sizing: border-box; /* 패딩 폭발 방지 */
 
                 button {
                     position: absolute;
@@ -1038,56 +1081,162 @@ header {
                 }
             }
         }
-    }
 
-    /* best 2,3,4등 제품 */
-    .best-list-2 {
-        display: flex;
-        gap: 2rem;
-        margin-top: 16px;
+        /* 🥈 best 2,3,4등 제품 (방어막이 장착된 튼튼한 Grid) */
+        > .best-list-2 {
+            display: grid;
+            /* 🚨 minmax(0, 1fr) : 내용물이 커져도 Grid 칸이 터지는 것을 막는 완벽한 방어막! */
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 2rem;
+            margin-top: 16px;
+            width: 100%;
+            box-sizing: border-box;
 
-        .best-item {
-            flex: 1;
-            cursor: pointer;
-
-            &:hover {
-                .img-box > .wishlist {
-                    opacity: 1;
-                }
-            }
-
-            .img-box {
-                position: relative;
-                aspect-ratio: 3 / 4;
-                overflow: hidden;
-                box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-                margin-bottom: 24px;
+            .best-item {
                 width: 100%;
+                min-width: 0; /* 🚨 자식 요소 뚫림 방지 */
+                cursor: pointer;
 
-                .wishlist {
-                    position: absolute;
-                    top: 12px;
-                    right: 12px;
-                    background-color: transparent;
-                    border: none;
-                    color: var(--color-gray);
-                    font-size: 18px;
-                    opacity: 0;
-                    transition: all .3s;
-                    cursor: pointer;
-
-                    &:hover {
-                        color: var(--wishlist-color-hover);
+                &:hover {
+                    .img-box > .wishlist {
+                        opacity: 1;
                     }
                 }
-            }
 
-            .txt-box {
-                text-align: center;
+                .img-box {
+                    position: relative;
+                    width: 100%;
+                    aspect-ratio: 3 / 4;
+                    overflow: hidden;
+                    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+                    margin-bottom: 24px;
+                    background-color: var(--img-box-bg);
+                    border: 1px solid var(--border-default);
+                    box-sizing: border-box;
+
+                    .wishlist {
+                        position: absolute;
+                        top: 12px;
+                        right: 12px;
+                        background-color: transparent;
+                        border: none;
+                        color: var(--color-gray);
+                        font-size: 18px;
+                        opacity: 0;
+                        transition: all .3s;
+                        cursor: pointer;
+
+                        &:hover {
+                            color: var(--wishlist-color-hover);
+                        }
+                    }
+                }
+
+                .pro-text-box {
+                    text-align: center;
+                }
             }
         }
     }
+
+    /* ==========================================
+       💻 반응형: 태블릿 (Tablet)
+       ========================================== */
+    @include tablet {
+        padding: 6rem 2rem;
+
+        > .best_title {
+            margin-bottom: 3rem;
+        }
+
+        .best_list {
+            gap: 4rem;
+
+            /* 1등 제품 태블릿 */
+            > .best-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 2.5rem;
+
+                .img-box {
+                    width: 100%;
+                    aspect-ratio: 16 / 9;
+                    button { opacity: 1; }
+                }
+
+                .txt-box {
+                    width: 100%;
+                    padding-right: 0;
+
+                    .title { font-size: var(--heading-lg); }
+                    .des { margin-bottom: 24px; }
+                }
+            }
+
+            /* 2,3,4등 제품 태블릿 */
+            > .best-list-2 {
+                gap: 1.5rem;
+
+                .best-item {
+                    .img-box {
+                        aspect-ratio: 4 / 5;
+                        .wishlist { opacity: 1; }
+                    }
+                }
+            }
+        }
+    }
+
+    /* ==========================================
+       📱 반응형: 모바일 (Mobile)
+       ========================================== */
+    @include mobile {
+        padding: 4rem 1.5rem;
+
+        > .best_title {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .best_list {
+            gap: 3rem;
+
+            /* 1등 제품 모바일 */
+            > .best-item {
+                gap: 1.5rem;
+
+                .img-box {
+                    aspect-ratio: 4 / 5;
+                }
+
+                .txt-box {
+                    .category { font-size: var(--body-xs); margin-bottom: 12px; }
+                    .title { font-size: var(--heading-md); margin-bottom: 16px; }
+                    .des { font-size: var(--body-sm); margin-bottom: 24px; }
+                    .price { font-size: var(--body-sm); }
+                }
+            }
+
+            /* 2,3,4등 제품 모바일 (2열 격자 구조) */
+            > .best-list-2 {
+    grid-template-columns: 1fr; /* 🚨 2칸 쪼개기를 지우고 1칸 꽉 차게! */
+    gap: 3rem; /* 위아래 간격을 시원하게 벌려줍니다 */
+
+    .best-item {
+        .img-box {
+            aspect-ratio: 4 / 5; // 또는 1 / 1 로 큼직하게
+        }
+        .pro-text-box {
+            text-align: center; /* 1열일 때는 텍스트 가운데 정렬이 우아합니다 */
+        }
+    }
 }
+        }
+    }
+}
+
 /* sec03-Signature Best 끝 */
 
 // 커스터마이징 섹션 시작
@@ -2150,3 +2299,4 @@ footer {
     }
 }
 //플로팅 버튼 끝
+
