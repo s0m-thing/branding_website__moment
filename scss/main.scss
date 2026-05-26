@@ -1876,6 +1876,197 @@ header {
 
         }
     }
+    @include tablet {
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+
+        .set_title_con {
+            margin-bottom: 4rem;
+        }
+
+        .set_gallery {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: auto;
+
+            .set_item {
+                flex: 0 0 50%;
+                width: 50%;
+                max-width: 50%;
+                height: 560px;
+                box-sizing: border-box;
+                border-right: none;
+                border-bottom: 1px solid var(--border-default);
+
+                &:nth-child(odd) {
+                    border-right: 1px solid var(--border-default);
+                }
+
+                &:nth-child(even) {
+                    border-right: none;
+                }
+
+                &:nth-last-child(-n + 2) {
+                    border-bottom: none;
+                }
+
+                .wishlist {
+                    opacity: 1;
+                }
+
+                .img_box {
+                    transform: none;
+                }
+
+                .txt_box {
+                    padding: 2.5rem 1.5rem;
+
+                    .set_title {
+                        font-size: 1.75rem;
+                        line-height: 1.25;
+                    }
+
+                    .txt_box_on {
+                        max-height: 300px;
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+
+                &:hover {
+                    .img_box {
+                        transform: none;
+                    }
+
+                    .txt_box {
+                        padding-bottom: 2.5rem;
+                    }
+
+                    .txt_box_on {
+                        max-height: 300px;
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            }
+        }
+    }
+
+    @include mobile {
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+
+        .set_title_con {
+            padding-inline: 1.25rem;
+            margin-bottom: 3rem;
+        }
+
+        .set_gallery {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            height: auto;
+
+            .set_item {
+                flex: 0 0 50%;
+                width: 50%;
+                max-width: 50%;
+                height: 420px;
+                box-sizing: border-box;
+                border-right: none;
+                border-bottom: 1px solid var(--border-default);
+
+                &:nth-child(odd) {
+                    border-right: 1px solid var(--border-default);
+                }
+
+                &:nth-child(even) {
+                    border-right: none;
+                }
+
+                &:nth-last-child(-n + 2) {
+                    border-bottom: none;
+                }
+
+                .wishlist {
+                    opacity: 1;
+                }
+
+                .img_box {
+                    transform: none;
+                }
+
+                .txt_box {
+                    padding: 2rem 1rem;
+
+                    .set_title {
+                        font-size: 1.25rem;
+                        line-height: 1.25;
+                    }
+
+                    .txt_box_on {
+                        max-height: none;
+                        opacity: 1;
+                        transform: translateY(0);
+
+                        .set_subtitle {
+                            margin-top: 1rem;
+                            font-size: 0.7rem;
+                        }
+
+                        .set_des {
+                            display: none;
+                        }
+                    }
+                }
+
+                &:hover {
+                    .img_box {
+                        transform: none;
+                    }
+
+                    .txt_box {
+                        padding-bottom: 2rem;
+                    }
+
+                    .txt_box_on {
+                        max-height: none;
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 480px) {
+        .set_gallery {
+            .set_item {
+                height: 360px;
+
+                .txt_box {
+                    padding: 1.5rem 0.75rem;
+
+                    .set_title {
+                        font-size: 1.05rem;
+                    }
+
+                    .txt_box_on {
+                        .set_subtitle {
+                            font-size: 0.65rem;
+                        }
+                    }
+                }
+
+                &:hover {
+                    .txt_box {
+                        padding-bottom: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
 }
 // 세트 상품 끝
 
