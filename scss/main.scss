@@ -47,9 +47,12 @@ a {
 	text-decoration: none;
 }
 
-
-
 :root {
+
+    @each $key, $value in t.$spacing {
+        --spacing-#{$key}: #{$value};
+    }
+
     // 의미토큰
     // 폰트 사이즈 재료
     --fs-xxs: #{map-get(t.$font-sizes, xxs)};
@@ -79,7 +82,22 @@ a {
     --color-overlay: #{map-get(t.$colors, overlay)};
 
     // 여백 재료
-    --spacing-xs: 4px; //수정
+    --space-comp-inner: var(--spacing-2);
+    --space-comp-space-1: var(--spacing-3);
+    --space-comp-space-2: var(--spacing-4);
+    --space-comp-space-3: var(--spacing-6);
+    --space-comp-group: var(--spacing-10);
+
+    --space-layout-tight: var(--spacing-5);
+    --space-layout-gap-sm: var(--spacing-8);
+    --space-layout-gap-md: var(--spacing-11);
+    --space-layout-bottom: var(--spacing-30);
+
+    --space-sec-sm: var(--spacing-12);
+    --space-sec-md: var(--spacing-16-5);
+    --space-sec-lg: var(--spacing-20);
+
+    --space-size-line-tall: var(--spacing-30);
 
     // 그림자 재료
     --shadow-sm: #{map-get(t.$shadows, sm)};
